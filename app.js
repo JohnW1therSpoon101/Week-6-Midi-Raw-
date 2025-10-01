@@ -30,5 +30,7 @@ console.log(myMidiNotes);
 const myMidiStuff = new MIDIengine();
 
 myMidiStuff.onNoteOn = (pitch, velocity, ch) => {
+  myMidiNotes[ch][pitch] = new OscillatorNode(myAudContext);
+  myMidiNotes[ch][pitch].frequency.value = mtof(pitch);
   console.log("Note on:", pitch, velocity, ch);
 };
