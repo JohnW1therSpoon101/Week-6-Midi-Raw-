@@ -37,3 +37,26 @@ myMidiStuff.onNoteOn = (pitch, velocity, ch) => {
   //log info
   console.log("Note on:", pitch, velocity, ch);
 };
+
+myMidiStuff.onNoteOff = (pitch, velocity, ch)) => {
+  console.log("yay"); 
+
+}
+
+const pitchBendStuff = function (data1, data2, ch) {
+  console.log(data1, data2, ch); 
+  myMidiNotes[ch][pitch].stop();
+
+}
+
+myMidiStuff.onControllerChange = (ccNum, value, ch) => {
+  while (ccNum == 71) { 
+    fader.gain.value = value / 127 ; 
+    console.log(value)
+  };
+};
+
+myMidiStuff.onPitchBend = pitchBendStuff; 
+
+
+
